@@ -1,11 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:waste_watcher/login_screen.dart';
 import 'package:waste_watcher/root.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,10 +25,21 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primaryColor: Colors.black,
+        primarySwatch: Colors.deepPurple,
       ),
       debugShowCheckedModeBanner: false,
-      home: Root()
+      home: FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Scaffold(appBar: AppBar(title: Text("something went wrong")));
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            return LoginScreen();
+          }
+          return Scaffold(appBar: AppBar(title: Text("loading")));
+        }
+      )
     );
   }
 }
