@@ -13,14 +13,14 @@ class CameraScreen extends StatefulWidget {
 }
 
 class _CameraScreenState extends State<CameraScreen> {
-  late CameraController controller;
-  late List cameras;
-  late int selectedCameraIndex;
-  late String imgPath;
+  CameraController? controller = CameraController;
+  List? cameras;
+  int? selectedCameraIndex;
+  String? imgPath;
 
   Future _initCameraController(CameraDescription cameraDescription) async {
     if (controller != null) {
-      await controller.dispose();
+      await controller?.dispose();
     }
     controller = CameraController(cameraDescription, ResolutionPreset.high);
 
@@ -192,7 +192,7 @@ class _CameraScreenState extends State<CameraScreen> {
     try {
       final path =
           join((await getTemporaryDirectory()).path, '${DateTime.now()}.png');
-      await controller.takePicture(path);
+      await controller.takePicture();
 
       Navigator.push(
         context,
