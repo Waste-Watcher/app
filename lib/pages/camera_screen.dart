@@ -14,9 +14,9 @@ class CameraScreen extends StatefulWidget {
 
 class _CameraScreenState extends State<CameraScreen> {
   late CameraController controller;
-  List? cameras;
-  int? selectedCameraIndex;
-  String? imgPath;
+  late List cameras;
+  late int selectedCameraIndex;
+  late String imgPath;
 
   Future _initCameraController(CameraDescription cameraDescription) async {
     if (controller != null) {

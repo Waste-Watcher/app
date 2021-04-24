@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:waste_watcher/camera_screen.dart';
+import 'package:waste_watcher/pages/camera_screen.dart';
 import 'package:waste_watcher/profile.dart';
 import 'package:waste_watcher/route_page.dart';
 import 'package:waste_watcher/settings_screen.dart';
