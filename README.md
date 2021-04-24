@@ -1,2 +1,2 @@
 # app
-Client-side android app that interacts with the Waste Watcher server.
+Client-side app that interacts with the Waste Watcher server.
