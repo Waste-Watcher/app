@@ -13,10 +13,10 @@ class CameraScreen extends StatefulWidget {
 }
 
 class _CameraScreenState extends State<CameraScreen> {
-  CameraController controller;
-  List cameras;
-  int selectedCameraIndex;
-  String imgPath;
+  late CameraController controller;
+  List? cameras;
+  int? selectedCameraIndex;
+  String? imgPath;
 
   Future _initCameraController(CameraDescription cameraDescription) async {
     if (controller != null) {
@@ -162,11 +162,9 @@ class _CameraScreenState extends State<CameraScreen> {
             size: 24,
           ),
           label: Text(
-              '${lensDirection.toString().substring(lensDirection.toString().indexOf('.') + 1).toUpperCase()}',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500
-              ),),
+            '${lensDirection.toString().substring(lensDirection.toString().indexOf('.') + 1).toUpperCase()}',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+          ),
         ),
       ),
     );
