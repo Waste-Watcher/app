@@ -31,6 +31,7 @@ dependencies:
   salomon_bottom_bar: ^3.0.0
   provider: ^5.0.0-nullsafety.1
   line_icons: ^2.0.0
+  
 
 
   # The following adds the Cupertino Icons font to your application.
